@@ -13,6 +13,7 @@ setup(
     python_requires='>=3.7',
     install_requires=[
         "transformers>=4.3.0,<=4.9.2",
-        "datasets>=1.1.3"
+        "datasets>=1.1.3",
+        "flax",
     ]
 )
