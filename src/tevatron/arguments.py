@@ -1,6 +1,6 @@
 import os
 from dataclasses import dataclass, field
-from typing import Optional, List
+from typing import Optional, List, Dict
 from transformers import TrainingArguments
 
 
@@ -62,7 +62,8 @@ class DataArguments:
     negative_passage_no_shuffle: bool = field(
         default=False, metadata={"help": "always use the first negative passages"})
 
-    encode_in_path: dict = field(default=None, metadata={"help": "Path to data to encode"})
+    encode_in_path: List[str] = field(default=None, metadata={"help": "Path to data to encode"})
+    encode_in_data: Dict[str,str] = field(default=None, metadata={"help": "Dictionary with data to encode"})
     encoded_save_path: str = field(default=None, metadata={"help": "where to save the encode"})
     encode_is_qry: bool = field(default=False)
     encode_num_shard: int = field(default=1)

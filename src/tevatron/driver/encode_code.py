@@ -24,9 +24,9 @@ from tevatron.datasets import HFQueryDataset, HFCorpusDataset
 logger = logging.getLogger(__name__)
 
 
-def encode(model_name_or_path,encode_in_path,encode_is_qry):
+def encode(model_name_or_path,encode_in_data,encode_is_qry):
     model_args = ModelArguments(model_name_or_path=model_name_or_path)
-    data_args = DataArguments(encode_in_path=encode_in_path, encoded_save_path='.')
+    data_args = DataArguments(encode_in_data=encode_in_data, encoded_save_path='.')
     training_args = TrainingArguments(output_dir='./retriever_model')
     parser = HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
 
