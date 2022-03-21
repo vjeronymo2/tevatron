@@ -55,6 +55,7 @@ class CoCondenser:
             config=config,
             cache_dir=self.model_args.cache_dir,
         )
+        self.model = self.model.to(self.training_args.device)
 
     def encode(self,encode_in_data,encode_is_qry):
         data_args = DataArguments(encode_in_data=encode_in_data, encoded_save_path='.')
@@ -84,7 +85,7 @@ class CoCondenser:
         )
         encoded = []
         lookup_indices = []
-        model = self.model.to(self.training_args.device)
+        model = self.model
         model.eval()
 
         for (batch_ids, batch) in tqdm(encode_loader):
